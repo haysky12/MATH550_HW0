@@ -4,7 +4,7 @@ function ddf = centralDiff2(f, h)
 % output df is the estimated values at the derivative
 
 % periodicity instead of one-sided
-ddf(1) = (f(2)-2*f(1)+f(length(f)))/(h^2);
+ddf(1) = (f(2)-2*f(1)+f(length(f)-1))/(h^2);
 
 % 2nd order central difference for internal points
 for i = 2:length(f)-1
@@ -12,4 +12,4 @@ for i = 2:length(f)-1
 end
 
 % periodicity instead of one-sided
-ddf(length(f)) = (f(1)-2*(f(length(f)))+f(length(f)-1))/(h^2);
+ddf(length(f)) = (f(2)-2*(f(length(f)))+f(length(f)-1))/(h^2);
